@@ -3,14 +3,14 @@
 </head>
 
 <body>	
-	{{> body}}
+	{{> inBody}}
 </body>
 
-<template name="body">
-	{{#if noUser}}
-		{{> landingPage}}
-	{{else}}
+<template name="inBody">
+	{{#if currentUser}}
 		{{> gamePage}}
+	{{else}}
+		{{> landingPage}}
 	{{/if}}
 </template>
 
@@ -20,18 +20,13 @@
 	<br> <!-- do this with css later -->
 	<br>
 	{{> loginButtons}}
-	{{#if currentUser}}
-		<br>
-		<br>
-		<form class="start-game">
-		  	<input type="submit" value="Start Playing!" onclick="hasLogged()"/>
-		</form>
-	{{/if}}
 </template>
 
 <template name="gamePage">
 	<h1>Your problem is: x + y + z = 10</h1>
-	STUFF
+	<form class="chatbox">
+		<input type="text" name="chat" placeholder="type here to chat" />
+	</form>
 </template>
 
 
