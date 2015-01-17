@@ -1,29 +1,41 @@
 <head>
   <title>Awesome Chat App</title>
-  <style type="text/css">
-    #chat-message {
-      width: 500px;
-      height: 50px;
-    }
-    #messages {
-      width: 700px;
-      height: 300px;
-      border: 1px solid rgb(230, 230, 230);
-      margin: 0px 0px 10px 0px;
-    }
-  </style>
 </head>
 
 <body>
-  {{> mainBox}}
+  {{#if currentUser}}
+    {{> mainBox}}
+  {{else}}
+    {{> mainBody}}
+  {{/if}}
 </body>
+
+<!-- Main body (before login) -->
+<template name='mainBody'>
+    <h2>Welcome to We Solve</h2>
+    <br>
+    <br>
+    Please login to continue.
+    <br>
+    <br>
+    {{> loginButtons}}
+</template>    
 
 <!-- Main Chat Window -->
 <template name='mainBox'>
   <div class='container'>
-    <h2>Awesome Chat App</h2>
+    <h2>We Solve</h2>
     <!-- shows login buttons -->
     {{> loginButtons}}
+    <br>
+    <br>
+    <h3>Your problem is:</h3>
+    <strong>Write a structure definition in racket for a <em>vector</em> with fields <em>x</em> and <em>y</em>.</strong>
+    <br>
+    <br>
+    <form class="solution">
+        <input type="text" name="text1" placeholder="Enter your solution here" />
+    </form>
     {{> chatBox}}
   </div>
 </template>
