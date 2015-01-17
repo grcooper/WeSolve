@@ -1,0 +1,37 @@
+<head>
+  <title>We Solve</title>
+</head>
+
+<body>	
+	{{> body}}
+</body>
+
+<template name="body">
+	{{#if noUser}}
+		{{> landingPage}}
+	{{else}}
+		{{> gamePage}}
+	{{/if}}
+</template>
+
+<template name="landingPage">
+	<h1>Welcome to We Solve!</h1>
+	Please login to start playing
+	<br> <!-- do this with css later -->
+	<br>
+	{{> loginButtons}}
+	{{#if currentUser}}
+		<br>
+		<br>
+		<form class="start-game">
+		  	<input type="submit" value="Start Playing!" onclick="hasLogged()"/>
+		</form>
+	{{/if}}
+</template>
+
+<template name="gamePage">
+	<h1>Your problem is: x + y + z = 10</h1>
+	STUFF
+</template>
+
+
